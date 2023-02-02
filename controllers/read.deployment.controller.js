@@ -19,19 +19,19 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:uid', async (req, res, next) => {
   try {
-    const list = await k8sHelpers.getList(
-      '/apis/krateo.io/v1alpha1/deployments'
+    const exists = await k8sHelpers.getList(
+      '/apis/krateo.io/v1alpha1/deployments',
+      `deploymentId=${req.params.uid}`
     )
 
-    const exists = list.find((x) => x.metadata.uid === req.params.uid)
-    if (!exists) {
+    if (!exists || exists.length === 0) {
       res
         .status(404)
         .json({ message: `Deployment ${req.params.uid} not found` })
       return
     }
 
-    res.status(200).json(responseHelpers.parse(exists))
+    res.status(200).json(responseHelpers.parse(exists[0]))
   } catch (error) {
     next(error)
   }
