@@ -7,7 +7,7 @@ labels:
   component: service
 
 image:
-  repository: ghcr.io/krateoplatformops/deployment-service
+  repository: ghcr.io/krateoplatformops/service-deployment
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
