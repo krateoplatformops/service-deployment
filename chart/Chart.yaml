@@ -1,6 +1,6 @@
 apiVersion: v2
-name: deployment-service
-description: Krateo PlatformOps Deployment Service
+name: service-deployment
+description: Krateo PlatformOps Service Deployment
 type: application
 icon: "https://github.com/krateoplatformops/community/blob/main/logos/black/icon.svg"
 
