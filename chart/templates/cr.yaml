@@ -5,22 +5,6 @@ metadata:
   labels:
     {{- include "helm.labels" . | nindent 8 }}
 rules:
-  - apiGroups: ["modules.krateo.io"]
-    resources: ["*"]
-    verbs: ["*"]
-  
-  - apiGroups: ["deployment.krateo.io"]
-    resources: ["*"]
-    verbs: ["*"]
-
-  - apiGroups: ["pkg.crossplane.io"]
-    resources: ["configurations"]
-    verbs: ["list", "get", "create", "delete", "update", "watch"]
-  
-  - apiGroups: [""]
-    resources: ["pods"]
-    verbs: ["get", "watch", "list"]
-
-  - apiGroups: ["apiextensions.k8s.io"]
-    resources: ["customresourcedefinitions"]
+  - apiGroups: ["krateo.io"]
+    resources: ["deployments"]
     verbs: ["*"]
