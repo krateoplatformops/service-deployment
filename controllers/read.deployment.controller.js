@@ -25,7 +25,10 @@ router.get('/:uid', async (req, res, next) => {
 
     const exists = list.find((x) => x.metadata.uid === req.params.uid)
     if (!exists) {
-      res.status(404).json({ message: 'Not found' })
+      res
+        .status(404)
+        .json({ message: `Deployment ${req.params.uid} not found` })
+      return
     }
 
     res.status(200).json(responseHelpers.parse(exists))
